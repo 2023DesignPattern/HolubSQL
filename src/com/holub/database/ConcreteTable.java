@@ -77,6 +77,11 @@ import com.holub.tools.ArrayIterator;
 	{	this.tableName   = tableName;
 		this.columnNames = (String[]) columnNames.clone();
 	}
+
+	public String[] getColumnNames(){
+		return columnNames;
+	}
+
 	/**********************************************************************
 	 * Return the index of the named column. Throw an
 	 * IndexOutOfBoundsException if the column doesn't exist.
@@ -450,6 +455,19 @@ import com.holub.tools.ArrayIterator;
 		Table[] allTables = new Table[ otherTables.length + 1 ];
 		allTables[0] = this;
 		System.arraycopy(otherTables, 0, allTables, 1, otherTables.length );
+
+		/**
+		 * [select * ] 쿼리문 동작
+		 * 모든 table의 모든 column명을 읽어와 set에 저장
+		 * 중복을 허용하지 않고 순서를 지키기 위하여 LinkedHashSet 사용
+		 * */
+		if(requestedColumns == null){
+			LinkedHashSet<String> set = new LinkedHashSet<>();
+			for(Table table : allTables){
+				set.addAll(Arrays.asList(((ConcreteTable) table).getColumnNames()));
+			}
+			requestedColumns = set.toArray(new String[0]);
+		}
 
 		// Create places to hold the result of the join and to hold
 		// iterators for each table involved in the join.
