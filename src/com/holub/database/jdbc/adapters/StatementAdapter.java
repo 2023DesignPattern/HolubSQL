@@ -41,7 +41,33 @@ public void setFetchDirection(int fetchDirection) throws SQLException {throw new
 public int getFetchDirection() throws SQLException {throw new SQLException("Statement.getFetchDirection() not supported");}
 public int getResultSetConcurrency() throws SQLException {throw new SQLException("Statement.getResultSetConcurrency() not supported");}
 public int getResultSetHoldability() throws SQLException {throw new SQLException("Statement.getResultSetHoldability() not supported");}
-public int getResultSetType() throws SQLException {throw new SQLException("Statement.getResultSetType() not supported");}
+
+    @Override
+    public boolean isClosed() throws SQLException {
+        return false;
+    }
+
+    @Override
+    public void setPoolable(boolean poolable) throws SQLException {
+
+    }
+
+    @Override
+    public boolean isPoolable() throws SQLException {
+        return false;
+    }
+
+    @Override
+    public void closeOnCompletion() throws SQLException {
+
+    }
+
+    @Override
+    public boolean isCloseOnCompletion() throws SQLException {
+        return false;
+    }
+
+    public int getResultSetType() throws SQLException {throw new SQLException("Statement.getResultSetType() not supported");}
 public void setQueryTimeout(int seconds) throws SQLException {throw new SQLException("Statement.setQueryTimeout(int seconds) not supported");}
 public int getQueryTimeout() throws SQLException {throw new SQLException("Statement.getQueryTimeout() not supported");}
 public ResultSet getResultSet() throws SQLException {throw new SQLException("Statement.getResultSet() not supported");}
@@ -70,5 +96,15 @@ public SQLWarning getWarnings() throws SQLException {throw new SQLException("Sta
 public void setCursorName(String name) throws SQLException {throw new SQLException("Statement.setCursorName(String name) not supported");}
 public void setEscapeProcessing(boolean enable) throws SQLException {throw new SQLException("Statement.setEscapeProcessing(boolean enable) not supported");}
 public void setMaxFieldSize(int max) throws SQLException {throw new SQLException("Statement.setMaxFieldSize(int max) not supported");}
-public void checkClosed() throws SQLException {throw new SQLException("Statement.checkClosed() not supported");}	
+public void checkClosed() throws SQLException {throw new SQLException("Statement.checkClosed() not supported");}
+
+    @Override
+    public <T> T unwrap(Class<T> iface) throws SQLException {
+        return null;
+    }
+
+    @Override
+    public boolean isWrapperFor(Class<?> iface) throws SQLException {
+        return false;
+    }
 }

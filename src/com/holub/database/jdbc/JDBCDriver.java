@@ -29,6 +29,7 @@ package com.holub.database.jdbc;
 import java.sql.*;
 import java.util.*;
 import java.net.*;
+import java.util.logging.Logger;
 
 /** A JDBC driver for a small in-memory database that wraps
  *  the {@link com.holub.database.Database} class. See that
@@ -69,6 +70,11 @@ public class JDBCDriver implements java.sql.Driver
 	public int		getMajorVersion() { return 1; }
 	public int		getMinorVersion() { return 0; }
 	public boolean	jdbcCompliant()	  {	return false; }
+
+	@Override
+	public Logger getParentLogger() throws SQLFeatureNotSupportedException {
+		return null;
+	}
 
 	public DriverPropertyInfo[] 
 	getPropertyInfo(String url, Properties info) throws SQLException

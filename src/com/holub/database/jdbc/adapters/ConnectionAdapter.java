@@ -26,6 +26,8 @@
  */
 package com.holub.database.jdbc.adapters;
 import java.sql.*;
+import java.util.Properties;
+import java.util.concurrent.Executor;
 
 /***
  * @include /etc/license.txt
@@ -75,6 +77,87 @@ public class ConnectionAdapter implements java.sql.Connection
 	public PreparedStatement prepareStatement(String sql) throws SQLException {throw new SQLException("Connection.prepareStatement(String sql) unsupported");  }
 	public PreparedStatement prepareStatement(String sql, int x, int y) throws SQLException {throw new SQLException("Connection.prepareStatement(String sql, int x, int y) unsupported");  }
 	public PreparedStatement prepareStatement(String sql,String[] columnNames) throws SQLException {throw new SQLException("Connection.prepareStatement(String sql,String[] columnNames) unsupported");  }
+
+	@Override
+	public Clob createClob() throws SQLException {
+		return null;
+	}
+
+	@Override
+	public Blob createBlob() throws SQLException {
+		return null;
+	}
+
+	@Override
+	public NClob createNClob() throws SQLException {
+		return null;
+	}
+
+	@Override
+	public SQLXML createSQLXML() throws SQLException {
+		return null;
+	}
+
+	@Override
+	public boolean isValid(int timeout) throws SQLException {
+		return false;
+	}
+
+	@Override
+	public void setClientInfo(String name, String value) throws SQLClientInfoException {
+
+	}
+
+	@Override
+	public void setClientInfo(Properties properties) throws SQLClientInfoException {
+
+	}
+
+	@Override
+	public String getClientInfo(String name) throws SQLException {
+		return null;
+	}
+
+	@Override
+	public Properties getClientInfo() throws SQLException {
+		return null;
+	}
+
+	@Override
+	public Array createArrayOf(String typeName, Object[] elements) throws SQLException {
+		return null;
+	}
+
+	@Override
+	public Struct createStruct(String typeName, Object[] attributes) throws SQLException {
+		return null;
+	}
+
+	@Override
+	public void setSchema(String schema) throws SQLException {
+
+	}
+
+	@Override
+	public String getSchema() throws SQLException {
+		return null;
+	}
+
+	@Override
+	public void abort(Executor executor) throws SQLException {
+
+	}
+
+	@Override
+	public void setNetworkTimeout(Executor executor, int milliseconds) throws SQLException {
+
+	}
+
+	@Override
+	public int getNetworkTimeout() throws SQLException {
+		return 0;
+	}
+
 	public PreparedStatement prepareStatement(String sql,int[] columnIndexes) throws SQLException {throw new SQLException("Connection.prepareStatement(String sql,int[] columnIndexes) unsupported");  }
 	public PreparedStatement prepareStatement(String sql,int a, int b, int c) throws SQLException {throw new SQLException("Connection.prepareStatement(String sql,int a, int b, int c) unsupported");  }
 	public PreparedStatement prepareStatement(String sql,int a) throws SQLException {throw new SQLException("Connection.prepareStatement(String sql,int a) unsupported");  }
@@ -87,5 +170,15 @@ public class ConnectionAdapter implements java.sql.Connection
 	public void setTransactionIsolation(int level) throws SQLException {throw new SQLException("Connection.setTransactionIsolation(int level) unsupported");  }
 	public java.util.Map getTypeMap() throws SQLException {throw new SQLException("unsupported");  }
 	public void setTypeMap(java.util.Map map) throws SQLException {throw new SQLException("Connection.setTypeMap(java.util.Map map) unsupported");  }
+
+	@Override
+	public <T> T unwrap(Class<T> iface) throws SQLException {
+		return null;
+	}
+
+	@Override
+	public boolean isWrapperFor(Class<?> iface) throws SQLException {
+		return false;
+	}
 }
 
